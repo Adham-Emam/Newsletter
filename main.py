@@ -10,14 +10,16 @@ import schedule
 
 from selenium.common.exceptions import NoSuchElementException
 
+
 def close_popups(driver):
     try:
-        # Example: Closing a specific popup by its class name or id
-        popup = driver.find_element(By.CSS_SELECTOR, ".popup-class-name")
-        popup_close_button = popup.find_element(By.CSS_SELECTOR, ".close-button-class-name")
+        popup = driver.find_element(By.CSS_SELECTOR, ".popup")
+        popup_close_button = popup.find_element(
+            By.CSS_SELECTOR, ".close-button")
         popup_close_button.click()
     except NoSuchElementException:
         pass
+
 
 def scrape_website():
     # Set up options for headless mode and realistic User-Agent
@@ -33,8 +35,8 @@ def scrape_website():
 
     # Disable popups and notifications
     prefs = {
-        "profile.default_content_setting_values.notifications": 2,  # Disable notifications
-        "profile.default_content_setting_values.popups": 2,         # Disable popups
+        "profile.default_content_setting_values.notifications": 2, # Disable notifications
+        "profile.default_content_setting_values.popups": 2, # Disable popups
     }
     options.add_experimental_option("prefs", prefs)
 
@@ -53,7 +55,7 @@ def scrape_website():
             # Wait for the post-title elements to be present
             elements = WebDriverWait(driver, 10).until(
                 EC.presence_of_all_elements_located(
-                    (By.CSS_SELECTOR, '.post-title'))
+                    (By.CSS_SELECTOR, '.post-thumb'))
             )
 
             # List to hold articles for this URL
@@ -115,9 +117,11 @@ def scrape_website():
 
 
 # Schedule the scrape_website function to run every 15 minutes
-schedule.every(0.01).minutes.do(scrape_website)
+delay = 0.01
 
-print("Scheduler started. Scraping every 15 minutes...")
+schedule.every(delay).minutes.do(scrape_website)
+
+print(f"Scheduler started. Scraping every {delay} minutes...")
 
 # Keep the script running
 while True:
