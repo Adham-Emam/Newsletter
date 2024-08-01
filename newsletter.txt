@@ -1,4 +1,3 @@
-['takeitright2022.com',
 'https://trends.khbrny.com/',
 'https://highwia.com/',
 'https://www.syriamatrix.com/',
@@ -54,4 +53,4 @@
 'https://mj.bald-news.com/',
 'https://www.arabiaweather.com/',
 'https://mesrena.com/',
-'https://m.sa24.co/',]
+'https://m.sa24.co/'
