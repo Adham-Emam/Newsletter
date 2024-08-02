@@ -1,8 +1,14 @@
-import os
 import scrapy
 import json
-from urllib.parse import urlparse
-from constants import URLS, ARTICLE_LINK_SELECTORS, TITLE_SELECTORS, LAST_UPDATED_SELECTORS, IMG_URL_SELECTORS, BODY_CONTENT_SELECTORS
+from paraphraser import paraphraser
+from constants import (
+    URLS,
+    ARTICLE_LINK_SELECTORS,
+    TITLE_SELECTORS,
+    LAST_UPDATED_SELECTORS,
+    IMG_URL_SELECTORS,
+    BODY_CONTENT_SELECTORS,
+)
 
 
 class NewsSpider(scrapy.Spider):
@@ -29,6 +35,10 @@ class NewsSpider(scrapy.Spider):
         # Join all text parts to form the complete body text
         body = "".join(body_parts)
 
+        # Paraphrase Title & body
+        title = paraphraser(title)
+        body = paraphraser(body)
+
         # Format the data as a string
         article_data = {
             "url": response.url,
@@ -41,8 +51,6 @@ class NewsSpider(scrapy.Spider):
         self.articles.append(article_data)
 
     def closed(self, reason):
-        data = {"articles": self.articles}
-
         # Write data to JSON file
         filename = "data.json"
         with open(filename, "w", encoding="utf-8") as f:

@@ -7,7 +7,7 @@ URLS = [
     "https://arab.sahafahh.net/",
     "https://arabic.sport360.com/",
     "https://aramland.com/",
-    "https://clubtc.net",
+    "https://clubtc.net/",
     "https://gate.ahram.org.eg/",
     "https://highwia.com/",
     "https://jo.motory.com/ar/",
@@ -19,7 +19,7 @@ URLS = [
     "https://misr-post.com/",
     "https://mj.bald-news.com/",
     "https://mobizil.com/",
-    "https://molhamon.com",
+    "https://molhamon.com/",
     "https://mostakpel.com/",
     "https://mz-mz.net/",
     "https://news.faharas.net/",
@@ -28,11 +28,11 @@ URLS = [
     "https://sa.tqwem.com/",
     "https://shbabbek.com/",
     "https://shootz.yalla-shoot-tv.live/home18/",
-    "https://takeitright2022.com",
+    "https://takeitright2022.com/",
     "https://trend.nl7za.com/",
     "https://trends.khbrny.com/",
     "https://wikieurope.net/",
-    "https://ww.kuwaitpress.net",
+    "https://ww.kuwaitpress.net/",
     "https://www.arabiaweather.com/",
     "https://www.elbalad.news/",
     "https://www.khaberni.com/",
@@ -45,7 +45,7 @@ URLS = [
     "https://www.yallakora.com/",
     "https://www.yanba7.com/",
     "https://www.youm7.com/",
-    "https://zawayan.com"
+    "https://zawayan.com/",
 ]
 
 ARTICLE_LINK_SELECTORS = (
@@ -86,7 +86,7 @@ ARTICLE_LINK_SELECTORS = (
     "a.story-title::attr(href), "
     "a.featured-story::attr(href), "
     "a[data-url]::attr(href), "
-    "a[data-article]::attr(href)"
+    "a[data-article]::attr(href) "
 )
 
 TITLE_SELECTORS = (
@@ -113,7 +113,7 @@ TITLE_SELECTORS = (
     "h3.title::text, "
     "h3.page-title::text, "
     "[data-article-title]::text, "
-    "[data-title]::text"
+    "[data-title]::text "
 )
 
 LAST_UPDATED_SELECTORS = (
@@ -133,7 +133,7 @@ LAST_UPDATED_SELECTORS = (
     "time.modified::text, "
     "time.posted-on::text, "
     "time.entry-date::text, "
-    "time.date::text"
+    "time.date::text "
 )
 
 IMG_URL_SELECTORS = (
@@ -160,6 +160,7 @@ IMG_URL_SELECTORS = (
 
 BODY_CONTENT_SELECTORS = (
     "div.entry-content p::text, "
+    "div.entry-content strong::text, "
     "div.entry-content ol::text, "
     "div.entry-content ul::text, "
     "div.entry-content h2::text, "
@@ -168,6 +169,7 @@ BODY_CONTENT_SELECTORS = (
     "div.entry-content h5::text, "
     "div.entry-content h6::text, "
     "div.article-content p::text, "
+    "div.article-content strong::text, "
     "div.article-content ol::text, "
     "div.article-content ul::text, "
     "div.article-content h2::text, "
@@ -176,6 +178,7 @@ BODY_CONTENT_SELECTORS = (
     "div.article-content h5::text, "
     "div.article-content h6::text, "
     "div.content p::text, "
+    "div.content strong::text, "
     "div.content ol::text, "
     "div.content ul::text, "
     "div.content h2::text, "
@@ -184,6 +187,7 @@ BODY_CONTENT_SELECTORS = (
     "div.content h5::text, "
     "div.content h6::text, "
     "div.main-content p::text, "
+    "div.main-content strong::text, "
     "div.main-content ol::text, "
     "div.main-content ul::text, "
     "div.main-content h2::text, "
@@ -192,6 +196,7 @@ BODY_CONTENT_SELECTORS = (
     "div.main-content h5::text, "
     "div.main-content h6::text, "
     "div.post-content p::text, "
+    "div.post-content strong::text, "
     "div.post-content ol::text, "
     "div.post-content ul::text, "
     "div.post-content h2::text, "
