@@ -48,7 +48,8 @@ class NewsSpider(scrapy.Spider):
             "body": body,
         }
 
-        self.articles.append(article_data)
+        if article_data["title"] and article_data["body"]:
+            self.articles.append(article_data)
 
     def closed(self, reason):
         # Write data to JSON file
