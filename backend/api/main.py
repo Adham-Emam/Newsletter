@@ -1,10 +1,25 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import json
 import os
 
 app = FastAPI()
 # Path to the JSON file in the parent directory
+
+
+
+orig_stdout = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=orig_stdout,  # Adjust if needed
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "news_scrapper", "data.json")
 
 
